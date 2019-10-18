@@ -1,19 +1,24 @@
 package com.infoud.ecommerece.shoppingcart;
 
 import java.util.List;
+import java.util.Map;
 
-public class ProductByID extends Storage {
+public class ProductByID {
 
 	public Product getProductById(int productId) {
 
 		Product product = null;
-		List<Product> pList = new Storage().getCart();
-		for (Product product2 : pList) {
-			if (product2.getProductId() == productId) {
-				product = product2;
-				break;
-			}
-		}
+		Map<Integer,Product> prod = Storage.getCart();
+	       for (Map.Entry<Integer, Product> entry : prod.entrySet()) {
+	    	   if(entry.getKey().equals(productId)) {
+
+	    	   product = entry.getValue();
+	    	               System.out.println("product:+"+product);
+	    	                  break;
+	    	              }
+	    	          }
+	    	          
+		
 
 		return product;
 

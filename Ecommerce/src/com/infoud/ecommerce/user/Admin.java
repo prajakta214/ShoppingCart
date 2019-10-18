@@ -6,8 +6,11 @@ import com.infoud.ecommerece.shoppingcart.AddProduct;
 import com.infoud.ecommerece.shoppingcart.DeleteProduct;
 import com.infoud.ecommerece.shoppingcart.Product;
 import com.infoud.ecommerece.shoppingcart.ProductFunction;
+import com.infoud.ecommerece.shoppingcart.Report;
 import com.infoud.ecommerece.shoppingcart.Storage;
+import com.infoud.ecommerece.shoppingcart.ViewPlacedOrder;
 import com.infoud.ecommerece.shoppingcart.ViewProduct;
+import com.infoud.ecommerece.shoppingcart.placeOrder;
 
 public class Admin extends User {
 
@@ -35,23 +38,38 @@ public class Admin extends User {
 	 * password) { super(id, name, role); this.userName = userName;
 	 * this.password = password; }
 	 */
-	ProductFunction productFunction=new ProductFunction();
+	// ProductFunction productFunction=new ProductFunction();
+	AddProduct addProduct = new AddProduct();
 
+	public void addProduct(Product product) {
 
-	public List<Product> addProduct(Product product) {
-
-		List<Product> products = productFunction.addProduct(product);
-		//System.out.println("product:" + products);
-		return products;
+		addProduct.addProduct(product);
 	}
+
+	ViewProduct viewProduct = new ViewProduct();
 
 	public void viewCart() {
-		
-		productFunction.viewCart();
+
+		viewProduct.viewCartItems();
 	}
+
+	DeleteProduct deleteProduct = new DeleteProduct();
 
 	public void removeProduct(int productId) {
 
-		productFunction.removeProductByPID(productId);
+		deleteProduct.removeProductByPID(productId);
+	}
+
+	Report report = new Report();
+	ViewPlacedOrder viewPlacedOrder = new ViewPlacedOrder();
+
+	public void Report() {
+		System.out
+				.println("\n************************* REPORTS ************************");
+		report.viewSaleReport();
+		System.out.println("Cart Element Report::");
+		viewProduct.viewCartItems();
+		System.out.println("Requested Order Report::");
+		viewPlacedOrder.viewPlacedOrder();
 	}
 }

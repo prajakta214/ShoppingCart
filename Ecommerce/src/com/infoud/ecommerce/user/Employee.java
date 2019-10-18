@@ -3,6 +3,9 @@ package com.infoud.ecommerce.user;
 import com.infoud.ecommerece.shoppingcart.OrderFunction;
 import com.infoud.ecommerece.shoppingcart.Product;
 import com.infoud.ecommerece.shoppingcart.RequestOrder;
+import com.infoud.ecommerece.shoppingcart.SellOrder;
+import com.infoud.ecommerece.shoppingcart.ViewPlacedOrder;
+import com.infoud.ecommerece.shoppingcart.ViewProduct;
 
 public class Employee extends User {
 
@@ -68,23 +71,23 @@ public class Employee extends User {
 				+ ", salary=" + salary + "]";
 	}
 
-	OrderFunction orderFunction = new OrderFunction();
-
+	//OrderFunction orderFunction = new OrderFunction();
+SellOrder sellOrder=new SellOrder();
 	public void sellProduct(int orderId) {
 		System.out.println("Your order is being saled.");
-		orderFunction.removeOrderByID(orderId);
+		sellOrder.removeOrderByID(orderId);
 		
 		System.out.println("Your order no "+orderId+" is  saled.");
 
 	}
-
+ViewPlacedOrder viewPlacedOrder =new ViewPlacedOrder();
 	public void viewRequestedOrder() {
-		orderFunction.viewRequestedOrders();
+		viewPlacedOrder.viewPlacedOrder();
 	}
-	public void viewSells() {
+	/*public void viewSells() {
 		orderFunction.viewSellOrder();
 	}
-
+*/
 		
 	}
 

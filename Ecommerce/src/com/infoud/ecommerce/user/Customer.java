@@ -1,11 +1,14 @@
 package com.infoud.ecommerce.user;
 
 import java.util.List;
+import java.util.Map;
 
 import com.infoud.ecommerece.shoppingcart.Order;
 import com.infoud.ecommerece.shoppingcart.OrderFunction;
 import com.infoud.ecommerece.shoppingcart.Product;
 import com.infoud.ecommerece.shoppingcart.RequestOrder;
+import com.infoud.ecommerece.shoppingcart.ViewPlacedOrder;
+import com.infoud.ecommerece.shoppingcart.placeOrder;
 
 public class Customer extends User {
 
@@ -60,16 +63,17 @@ public class Customer extends User {
 		return "Customer [custId=" + custId + ",name=" + getName() + "]";
 	}
 
-	OrderFunction orderFunction = new OrderFunction();
-
-	public List<Order> buyProduct(Order order) {
-
-		List<Order> reqorder = orderFunction.requestOrder(order);
-		// System.out.println("product:" + products);
-		return reqorder;
+	//OrderFunction orderFunction = new OrderFunction();
+placeOrder pOrder = new placeOrder();
+	
+	
+	public void buyProduct(Order order) {
+		
+		pOrder.requestOrder(order);
+		
 	}
-
+ViewPlacedOrder viewPlacedOrder=new ViewPlacedOrder();
 	public void viewRequestedOrder() {
-		orderFunction.viewRequestedOrders();
+		viewPlacedOrder.viewPlacedOrder();
 	}
 }

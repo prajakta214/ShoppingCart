@@ -1,49 +1,44 @@
 package com.infoud.ecommerece.shoppingcart;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.infoud.ecommerce.user.User;
 
 public class Storage {
 	
-	List<Order> orderList =new ArrayList<Order>();
-	List<Product> cart=new ArrayList<Product>();
-	List<User>userList=new ArrayList<User>();
-	List<RequestOrder> requestList=new ArrayList<RequestOrder>();
-	List<Order> sellList=new ArrayList<Order>();
-			
+	public static Map<Integer ,Product> cart=new HashMap<Integer,Product>();
+	public static Map<Integer, User>userList=new HashMap<Integer,User>();
+	public static Map<Integer, Product> sellList=new HashMap<Integer,Product>();
+	public static Map<Integer,Order> orderList =new HashMap<Integer,Order>();
 	
-	public List<Order> getSellList() {
-		return sellList;
-	}
-	public void setSellList(List<Order> sellList) {
-		this.sellList = sellList;
-	}
-	public List<Order> getOrderList() {
-		return orderList;
-	}
-	public void setOrderList(List<Order> orderList) {
-		this.orderList = orderList;
-	}
-	public List<Product> getCart() {
+	
+	public static Map<Integer, Product> getCart() {
 		return cart;
 	}
-	public void setCart(List<Product> cart) {
-		this.cart = cart;
+	public static void setCart(Map<Integer, Product> cart) {
+		Storage.cart = cart;
 	}
-	public List<User> getUserList() {
+	public static Map<Integer, User> getUserList() {
 		return userList;
 	}
-	public void setUserList(List<User> userList) {
-		this.userList = userList;
+	public static void setUserList(Map<Integer, User> userList) {
+		Storage.userList = userList;
 	}
-	public List<RequestOrder> getRequestList() {
-		return requestList;
+	public static Map<Integer, Product> getSellList() {
+		return sellList;
 	}
-	public void setRequestList(List<RequestOrder> requestList) {
-		this.requestList = requestList;
+	public static void setSellList(Map<Integer, Product> sellList) {
+		Storage.sellList = sellList;
 	}
+	public static Map<Integer, Order> getOrderList() {
+		return orderList;
+	}
+	public static void setOrderList(Map<Integer, Order> orderList) {
+		Storage.orderList = orderList;
+	}
+	
+	
 	
 	
 }

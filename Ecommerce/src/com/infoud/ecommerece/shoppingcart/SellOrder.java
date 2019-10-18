@@ -1,10 +1,20 @@
 package com.infoud.ecommerece.shoppingcart;
 
-public class SellOrder extends Order {
+public class SellOrder extends OrderById {
 
-	/*public SellOrder(int orderId, String orderStatus, Product product) {
-		super(orderId, orderStatus, product);
-		// TODO Auto-generated constructor stub
-	}*/
+	public void removeOrderByID(int orderId) {
+		Order order1 = getOrderById(orderId);
+
+		deleteOrder(order1);
+	}
+
+	UpdateProduct updateProduct = new UpdateProduct();
+
+	private void deleteOrder(Order order) {
+
+		Storage.orderList.remove(order.getOrderId());
+		Storage.sellList.put(order.getOrderId(), order.getProduct());
+		updateProduct.updateProductQuantity(order.getProduct(), 1);
+	}
 
 }

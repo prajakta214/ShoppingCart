@@ -1,10 +1,13 @@
 package com.infoud.ecommerece.shoppingcart;
 
-public class ViewProduct extends Storage{
+import java.util.Map;
 
-	public void viewCart(){
-		 for(Product product:cart){
-			 System.out.println("Cart:: "+product);
-		 }
+public class ViewProduct {
+
+	public void viewCartItems() {
+		System.out.println("View Cart Items::");
+		for (Map.Entry<Integer, Product> entry : Storage.cart.entrySet()) {
+			System.out.println("Product Id:: " + entry.getKey() + " product  Details :: " + entry.getValue());
+		}
 	}
 }

@@ -5,11 +5,10 @@ import java.util.List;
 
 
 
-public class AddProduct extends  Storage{
+public class AddProduct{
 
-	 public List<Product> addProduct(Product product){
-		 cart.add(product);
-		return cart;
+	 public void addProduct(Product product){
+		 Storage.cart.put(product.getProductId(), product);
 		 
 	 }
 	 
